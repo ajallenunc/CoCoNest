@@ -6,7 +6,7 @@ ConConNest was originally created on the MSM mesh (the same mesh used to create 
 
 and projected it to MNI space. 
 
-<img src="imgs/conconnest_250_mni.png" width="300">
+<img src="imgs/conconnest_250_mni.png" width="600">
 
 
 Annotation files for ConConNest in these spaces can be found in the labels folder. 
