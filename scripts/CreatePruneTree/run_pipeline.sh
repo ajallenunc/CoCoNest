@@ -1,10 +1,10 @@
 #!/bin/bash
 
-source config.txt
+source ../config.txt
 
-# Step 1: Create and Prune CoCoNest Tree
 module add matlab/2022b
 
+### Step 1: Create and Prune CoCoNest Tree ### 
 mkdir -p ../output/TreeResults
 
 # ~3gb

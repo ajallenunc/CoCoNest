@@ -1,5 +1,6 @@
 PARC_NAME="CoCoNest"
 DATA_FILE="HCP_CC_Cont_SC.mat"
+COCO_PATH="/work/users/a/a/aallen1/ConConNest"
 OUTPUT_FOLDER="/work/users/a/a/aallen1/ConConNest/scripts/output"
 LINKAGE="average"
 DISTANCE="euclidean"
