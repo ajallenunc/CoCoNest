@@ -35,7 +35,7 @@ function [parc_sc, idx_no_cc] = scToParc(parcName, full_sc, onlyIDX, k, doEC)
 
         if doEC
            % Prune Tree
-           [idx,~,~] = fast_term_to_clusters(prune_struct.treeSeq,prune_struct.node_mat,find(prune_struct.lengthSeq <= k,1),prune_struct.link);
+           [idx,~,~] = tree2IDX(prune_struct,k);
         else
            my_corp = load('hcp_corpus_mask.mat');
            anti_corp = setdiff(1:4121,my_corp.corpus_mask);                 
