@@ -1,4 +1,4 @@
-function prune_struct = cost_comp_prune(dendo,sc,fcn)
+function prune_struct = err_comp_prune(dendo,sc,fcn)
 
 % Get Matrix that contains the descendants of each node 
 node_mat = getNodeMatrix(dendo); 
@@ -59,7 +59,11 @@ while length(term_nodes) > 1
     alphaSeq = [alphaSeq min_g]; 
     
     % Drop Weakest Link
+    
     prune_node = inner_nodes(g_fcn_list == min_g); 
+    if length(prune_node) < 1
+        keyboard
+    end
     prune_node = prune_node(1); % Drop out first node if there is a tie (CHANGE LATER)
     pruned_branch_list = [pruned_branch_list prune_node]; 
     drop_nodes = find(node_mat(prune_node,:)==1); % Find all deleted nodes 
