@@ -1,10 +1,11 @@
 function [idx_corp,my_parc,idx_no_corp] = tree2IDX(prune_struct,k)
 
 % Parse Prune Struct
+length_list = prune_struct.lengthSeq; 
 prune_list = prune_struct.treeSeq; 
 node_matrix = prune_struct.node_mat; 
 dendo = prune_struct.link; 
-choice = find(prune_list <= k,1); % When to stop pruning
+choice = find(length_list <= k,1); % When to stop pruning
 
 % Setup Vars
 load('hcp_corpus_mask.mat')
