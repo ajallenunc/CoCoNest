@@ -1,5 +1,7 @@
 # CoCoNest
-A nested, multi-resolution family of parcellations of the human cerebral cortex. 
+A nested, multi-resolution family of parcellations of the human cerebral cortex. The CoCoNest family was from the structural connectivity of 897 participants from the Human Connectome Project. The average structural connectivity from these subjects was fed into a standard agglomerative clustering algorithm to create a full binary tree, and then a error-complexity pruning algorithm to create a decreasing sequence of subtrees. The terminal nodes of each subtree corresponds to a unique member of the CoCoNest family. 
+
+<img src="imgs/parc_pipeline.png" width="600">
 
 Scripts to recreate the ConConNest family are available in the scripts/CreatePruneTree folder. 
 
