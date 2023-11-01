@@ -2,8 +2,9 @@
 
 ## Brief Methodology 
 A nested, multi-resolution family of parcellations of the human cerebral cortex. The CoCoNest family was constructed from the structural connectivity of 897 subjects from the Human Connectome Project. The average structural connectivity from these subjects was fed into a standard agglomerative clustering algorithm to create a full binary tree, and then a error-complexity pruning algorithm to create a decreasing sequence of subtrees. The terminal nodes of each subtree correspond to a unique member of the CoCoNest family. The scripts used to create the CoCoNest family are available in the scripts/CreatePruneTree folder.  
-
+<p align="center">
 <img src="imgs/parc_pipeline.png" width="500">
+</p>
 
 # Extracting Members of the CoCoNest family
 All members of the CoCoNest family are available in the original downsampled MSM space and can be accessed using the scripts/util/tree2IDX.m function along with the scripts/output/TreeResults/CoCoNest_prune_struct.mat file. This matrix file contains the relevant data, collected during the tree growing and pruning algorithms, needed to extract CoCoNest members of different sizes. 
