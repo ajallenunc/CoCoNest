@@ -16,6 +16,8 @@ All members of the CoCoNest family are available in the original downsampled MSM
 
 Additionally, the scripts in the scripts/GetCoCoMembers folder can be used to extract members of the CoCoNest family and project these members to the fsaverage and MNI space. A brief example is given below. 
 
+*Note: To project CoCoNest members to different template spaces using the below code, you must install [Freesurfer](https://surfer.nmr.mgh.harvard.edu/) and the [Connectome Workbench](https://www.humanconnectome.org/software/connectome-workbench) Additionally, to project members to the MNI space you must first run recon-all on the MNI-152 template volume image.*
+
 First, we edit the scripts/config.txt file with the correct path to the CoCoNest directory. Then we can run the following code 
 ```
 cd scripts/GetCoCoMembers
