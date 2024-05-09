@@ -1,0 +1,16 @@
+scripts/EDA
+scripts/NetworkAnaly
+scripts/output
+scripts/ParcEval
+scripts/ABCD
+scripts/CreatePruneTree/out_slurm
+scripts/CreatePruneTree/trash
+scripts/data/all_hcp_traits.csv
+scripts/data/HCP_CC_Cont_FC.mat
+scripts/data/hcp_rescan_ids.mat
+scripts/data/hcp_all_ids.mat
+scripts/data/ABCD_CONT_SC_NO_CC_LOG.mat 
+scripts/data/ABCD_CONT_SC_NO_CC.mat
+
+
+

@@ -15,6 +15,7 @@ mkdir -p $OUTPUT_FOLDER/labels
 
 # Create Annot Files
 module load matlab
+
 matlab -nodesktop -nosplash -singleCompThread -r "CoCoNest2Annot('$PARC_NAME','$KLIST','$COCO_PATH'); exit;"
  
 # Project Labels 

@@ -4,58 +4,26 @@ source ../config.txt
 
 module add matlab/2022b
 
+##############################################
 ### Step 1: Create and Prune CoCoNest Tree ### 
+##############################################
+
 mkdir -p ../output/TreeResults
 
 # ~3gb
-#sbatch --job-name=Create_${PARC_NAME}_Job --ntasks=1 --mem=16g -t 6:00:00 --output=out_slurm/%J_${PARC_NAME}.out --wrap="matlab -nodesktop -nosplash -singleCompThread -r 'createPruneTree(\"$PARC_NAME\",\"$DATA_FILE\",\"$OUTPUT_FOLDER\",\"$LINKAGE\",\"$DISTANCE\",\"$TREE_ERROR\")'"
+step1_id=$(sbatch --parsable --job-name=Create_${PARC_NAME}_Job --ntasks=1 --mem=16g -t 2- --output=out_slurm/%J_${PARC_NAME}.out --wrap="matlab -nodesktop -nosplash -singleCompThread -r 'createPruneTree(\"$PARC_NAME\",\"$DATA_FILE\",\"$OUTPUT_FOLDER\",\"$LINKAGE\",\"$DISTANCE\",\"$TREE_ERROR\")'")
 
+# Create list of all tree parcellations and add to external parcellations
+TREE_PARCS=$(echo "${KSEQ}" | sed "s/[^ ]*/${PARC_NAME}_&/g")
+ALL_PARCS="${TREE_PARCS} ${OUT_PARCS}"
+
+#########################################
 ### Step 2: Create Data for Parc Eval ###
-#mkdir -p ../output/ParcTensors
-#mkdir -p ../output/PCScores
-#
-## Tree Data
-#for k in $KSEQ; do
-#    sbatch --job-name=${PARC_NAME}_CreateParcData --ntasks=1 --mem=60g -t 6:00:00 --output=out_slurm/%J_CREATE_${PARC_NAME}_DATA.out --wrap="matlab -nodesktop -nosplash -singleCompThread -r \"createParcTensor('$PARC_NAME','$OUTPUT_FOLDER',$k)\""
-#done
-#
-#### External Parc Data
-#for o in $OUT_PARCS; do
-#    sbatch --job-name=${o}_CreateParcData --ntasks=1 --mem=60g -t 6:00:00 --output=out_slurm/%J_CREATE_${o}_DATA.out --wrap="matlab -nodesktop -nosplash -singleCompThread -r \"createParcTensor('$o','$OUTPUT_FOLDER','')\""
-#done
+#########################################
 
+mkdir -p ../output/ConData
 
-### Step 3: Predict Traits ### 
-module add r
-mkdir -p ../output/PredictResults
-
-# Regression
-#for t in $REG_TRAITS; do
-#    for k in $KSEQ; do
-#      sbatch --job-name=${PARC_NAME}_PredictOnTrait --output out_slurm/%J_${t}_${k}_${PARC_NAME}.out --time=3:00:00 --ntasks=1 --cpus-per-task=1 --mem-per-cpu=16G --wrap "Rscript PredictOnSplit.R \
-#      trait='$t' task='regress' alpha='0' outFolder='$OUTPUT_FOLDER' parcName='$PARC_NAME' k='$k' "
-#    done
-#done
-
-for t in $REG_TRAITS; do
-    for o in $OUT_PARCS; do
-      sbatch --job-name=${o}_PredictOnTrait --output out_slurm/%J_${t}_${o}.out --time=3:00:00 --ntasks=1 --cpus-per-task=1 --mem-per-cpu=16G --wrap "Rscript PredictOnSplit.R \
-      trait='$t' task='regress' alpha='0' outFolder='$OUTPUT_FOLDER' parcName='$o' k='' "
-    done
+for PARC in ${ALL_PARCS}; do
+    sbatch --dependency=afterok:$step1_id --job-name=${PARC}_CreateParcData --ntasks=1 --mem=60g -t 6:00:00 --output=out_slurm/%J_CREATE_${PARC}_DATA.out --wrap="matlab -nodesktop -nosplash -singleCompThread -r \"createConDataHCP('$PARC','$OUTPUT_FOLDER')\""
 done
-
-# Classification
-#for t in $CLASS_TRAITS; do
-#    for k in $KSEQ; do
-#      sbatch --job-name=${PARC_NAME}_PredictOnTrait --output out_slurm/%J_${t}_${k}_${PARC_NAME}.out --time=3:00:00 --ntasks=1 --cpus-per-task=1 --mem-per-cpu=16G --wrap "Rscript PredictOnSplit.R \
-#      trait='$t' task='classify' alpha='0' outFolder='$OUTPUT_FOLDER' parcName='$PARC_NAME' k='$k' "
-#    done
-#done
-
-#for t in $CLASS_TRAITS; do
-#    for o in $OUT_PARCS; do
-#      sbatch --job-name=${o}_PredictOnTrait --output out_slurm/%J_${t}_${o}.out --time=3:00:00 --ntasks=1 --cpus-per-task=1 --mem-per-cpu=16G --wrap "Rscript PredictOnSplit.R \
-#      trait='$t' task='classify' alpha='0' outFolder='$OUTPUT_FOLDER' parcName='$o' k='' "
-#    done
-#done
 
