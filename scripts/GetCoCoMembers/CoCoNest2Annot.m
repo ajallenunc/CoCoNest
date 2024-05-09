@@ -18,14 +18,9 @@ function result = CoCoNest2Annot(name,kseq,cocoPath)
         
         % Change CC label from 4 to 0 
         tree_idx(tree_idx == 4) = 0; 
-
-        % Sort SBCI Mapping
-        [map_sort,map_sort_idx] = sort(sbci_mapping.map(1,:)); 
-        map_sort_2 = sbci_mapping.map(2,map_sort_idx); 
-        sorted_map = [map_sort; map_sort_2]; 
-        
+       
         % Upsample Labels
-        tree_labs = tree_idx(sorted_map(2,:)); 
+        tree_labs = upsample_data(sbci_mapping,tree_idx); 
         
         %%% Create Annot File Stuff %%%
         for hemi = ["L","R"]
@@ -40,18 +35,19 @@ function result = CoCoNest2Annot(name,kseq,cocoPath)
             vertices = 0:(length(idx)-1); 
         
             % Create Color Table
-            colors = [[0 0 0];round(distinguishable_colors(n_labels-1) * 255)]; 
+            colors = round(distinguishable_colors(n_labels) * 255); 
             ct.numEntries = n_labels; 
             ct.orig_tab = 'Random Colors'; 
-            ct.struct_names = arrayfun(@(x) sprintf('Cluster %d', x), 1:n_labels, ...
+            ct.struct_names = arrayfun(@(x) sprintf('Cluster %d', x), unique(idx), ...
                 'UniformOutput',false); 
             integer_values = int32(colors(:,1) + colors(:,2)*2^8 + colors(:,3)*2^16);
-        
+
             % Remap IDX to Integer Values
             mapping = containers.Map(unique(idx), unique(integer_values,'stable')); 
             remap_idx = arrayfun(@(x) mapping(x), idx); 
             ct.table = [colors, zeros(n_labels,1), integer_values];
 
+            
             if ((length(unique(tree_idx))-1) ~= k)
                 disp("CoCoNest Member with " + string(k) + " parcels not available");
                 disp("CoCoNest_" + string(k) + " has " + string((length(unique(tree_idx)))-1) + " parcels");

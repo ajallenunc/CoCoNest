@@ -1,4 +1,4 @@
-function [parc_sc, idx_no_cc] = scToParc(parcName, full_sc, onlyIDX, k, doEC)
+function [parc_sc, idx_no_cc] = scToParc(parcName,isExt, full_sc, onlyIDX, k, doEC)
 
     % Load SBCI Mapping 
     load('sbci_mapping.mat');
@@ -17,7 +17,7 @@ function [parc_sc, idx_no_cc] = scToParc(parcName, full_sc, onlyIDX, k, doEC)
         end
 
     % Handle External Parcellations  
-    elseif any(strcmpi(parcName,{'yeo_17','desk','dest','bn','hcp'}))
+    elseif isExt
         parc_dat = load([parcName,'_parc.mat']);
         parc = parc_dat.parc; 
         parc.labels = parc.labels.';
@@ -59,5 +59,6 @@ function [parc_sc, idx_no_cc] = scToParc(parcName, full_sc, onlyIDX, k, doEC)
 
         end
     end
+
 end
 
