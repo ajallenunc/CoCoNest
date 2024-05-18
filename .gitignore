@@ -6,11 +6,18 @@ scripts/ABCD
 scripts/CreatePruneTree/out_slurm
 scripts/CreatePruneTree/trash
 scripts/data/all_hcp_traits.csv
+scripts/data/hcp_aad_data.RData
+scripts/data/hcp_all_ids.csv
+scripts/data/full_sc_mean_log_mat.mat
+scripts/data/HCP_CC_Cont_SC_NO_LOG.mat
+scripts/data/full_sc_mean_mat.mat
 scripts/data/HCP_CC_Cont_FC.mat
 scripts/data/hcp_rescan_ids.mat
 scripts/data/hcp_all_ids.mat
 scripts/data/ABCD_CONT_SC_NO_CC_LOG.mat 
 scripts/data/ABCD_CONT_SC_NO_CC.mat
+scripts/CreatePruneTree/.config.text.swp
+scripts/GetCoCoMembers/projectGordonLabels.sh
 
 
 
