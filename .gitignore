@@ -18,6 +18,5 @@ scripts/data/ABCD_CONT_SC_NO_CC_LOG.mat
 scripts/data/ABCD_CONT_SC_NO_CC.mat
 scripts/CreatePruneTree/.config.text.swp
 scripts/GetCoCoMembers/projectGordonLabels.sh
-
-
+.gitignore
 
