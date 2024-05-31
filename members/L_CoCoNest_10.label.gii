@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE GIFTI SYSTEM "http://gifti.projects.nitrc.org/gifti.dtd">
+<GIFTI Version="1.0"  NumberOfDataArrays="1">
+   <MetaData>
+      <MD>
+         <Name><![CDATA[UserName]]></Name>
+         <Value><![CDATA[aallen1]]></Value>
+      </MD>
+      <MD>
+         <Name><![CDATA[Date]]></Name>
+         <Value><![CDATA[Tue Mar 26 13:29:49 2024]]></Value>
+      </MD>
+      <MD>
+         <Name><![CDATA[gifticlib-version]]></Name>
+         <Value><![CDATA[gifti library version 1.09, 28 June, 2010]]></Value>
+      </MD>
+   </MetaData>
+   <LabelTable>
+      <Label Key="0" Red="0" Green="0" Blue="1" Alpha="1"><![CDATA[Cluster 0]]></Label>
+      <Label Key="1" Red="1" Green="0" Blue="0" Alpha="1"><![CDATA[Cluster 1]]></Label>
+      <Label Key="2" Red="0" Green="1" Blue="0" Alpha="1"><![CDATA[Cluster 2]]></Label>
+      <Label Key="3" Red="0" Green="0" Blue="0.172549" Alpha="1"><![CDATA[Cluster 5]]></Label>
+      <Label Key="4" Red="1" Green="0.101961" Blue="0.72549" Alpha="1"><![CDATA[Cluster 7]]></Label>
+      <Label Key="5" Red="1" Green="0.827451" Blue="0" Alpha="1"><![CDATA[Cluster 8]]></Label>
+      <Label Key="6" Red="0" Green="0.345098" Blue="0" Alpha="1"><![CDATA[Cluster 9]]></Label>
+   </LabelTable>
+   <DataArray Intent="NIFTI_INTENT_LABEL"
+              DataType="NIFTI_TYPE_INT32"
+              ArrayIndexingOrder="RowMajorOrder"
+              Dimensionality="1"
+              Dim0="32492"
+              Encoding="GZipBase64Binary"
+              Endian="LittleEndian"
+              ExternalFileName=""
+              ExternalFileOffset="">
+      <MetaData>
+         <MD>
+            <Name><![CDATA[Name]]></Name>
+            <Value><![CDATA[node label]]></Value>
+         </MD>
+      </MetaData>
+      <Data>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</Data>
+   </DataArray>
+</GIFTI>
