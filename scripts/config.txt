@@ -9,3 +9,5 @@ KSEQ="5 10 15 25 50 75 100 125 150 175 200 225 250 275 300 325 350 375 400 450 4
 OUT_PARCS="yeo_17 desk dest bn hcp schaefer_100 schaefer_200 schaefer_300 schaefer_400 schaefer_500 gordon" 
 REG_TRAITS="ReadEng_AgeAdj PMAT24_A_CR VSPLOT_TC NEOFAC_O IWRD_TOT"
 CLASS_TRAITS="Gender"
+FS_SUB_FOLDER="/users/a/a/aallen1/freesurfer/subjects"
+

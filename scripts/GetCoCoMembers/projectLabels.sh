@@ -3,7 +3,7 @@ source ../config.txt
 LABEL_IN=$1
 
 ## Change to Freesurfer Subjects Directory ##
-export SUBJECTS_DIR=/users/a/a/aallen1/freesurfer/subjects
+export SUBJECTS_DIR=$FS_SUB_FOLDER
 
 for hemi in {L,R}; do
 
@@ -28,4 +28,5 @@ for hemi in {L,R}; do
 
 done
 
+rm temp_k.txt
 
