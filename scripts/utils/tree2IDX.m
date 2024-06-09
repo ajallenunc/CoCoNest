@@ -35,20 +35,18 @@ end
 
 idx_corp = zeros(4121,1);
 idx_no_corp = zeros(max_leaf,1); 
-id = 1; 
 
 % Label Terminal nodes 
 for t = term_nodes
     get_nest = find(node_matrix(t,:)==1); 
     get_obser = get_nest(get_nest <= max_leaf); 
-    idx_corp(anti_corpus(get_obser),:) = id; 
-    idx_no_corp(get_obser) = id; 
-    id = id+1; 
+    idx_corp(anti_corpus(get_obser),:) = t; 
+    idx_no_corp(get_obser) = t; 
 end
 
 % CC coded as for for black color in distinguishable_colors matlab function
 find_4 = find(idx_corp == 4); 
-idx_corp(find_4) = id; 
+idx_corp(find_4) = max(unique(idx_corp))+1; 
 idx_corp(corpus_mask) = 4; 
 
 % Create Parcellation Structure for SBCI Scripts

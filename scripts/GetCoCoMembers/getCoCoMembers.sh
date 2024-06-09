@@ -14,14 +14,15 @@ source ~/.bashrc_sbci
 mkdir -p $OUTPUT_FOLDER/labels
 
 # Create Annot Files
-module load matlab
+module load matlab/2023a
 
 matlab -nodesktop -nosplash -singleCompThread -r "CoCoNest2Annot('$PARC_NAME','$KLIST','$COCO_PATH'); exit;"
  
 # Project Labels 
-for k in $KLIST; do
-
+KLIST_FILE="temp_k.txt"
+while IFS= read -r k; do
     bash projectLabels.sh "${PARC_NAME}_${k}"
+done < "$KLIST_FILE"
 
-done
+
 

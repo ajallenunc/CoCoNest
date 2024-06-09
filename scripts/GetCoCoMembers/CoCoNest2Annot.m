@@ -50,13 +50,18 @@ function result = CoCoNest2Annot(name,kseq,cocoPath)
             
             if ((length(unique(tree_idx))-1) ~= k)
                 disp("CoCoNest Member with " + string(k) + " parcels not available");
-                disp("CoCoNest_" + string(k) + " has " + string((length(unique(tree_idx)))-1) + " parcels");
+                k = length(unique(tree_idx))-1
             end
-            
+
             % Write Annot
             write_annotation(strcat(cocoPath,'/scripts/output/labels/',hemi,'.',name,'_',...
-                string(k),'.annot'), vertices, remap_idx, ct);    
+                string(k),'_fslr32k.annot'), vertices, remap_idx, ct);    
         end
+
+        % Save new k to temp file 
+        fileID = fopen('temp_k.txt','a'); 
+        fprintf(fileID, '%d\n', k);
+        fclose(fileID);
     end
 
     result = 1; 

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE GIFTI SYSTEM "http://gifti.projects.nitrc.org/gifti.dtd">
+<GIFTI Version="1.0"  NumberOfDataArrays="1">
+   <MetaData>
+      <MD>
+         <Name><![CDATA[UserName]]></Name>
+         <Value><![CDATA[aallen1]]></Value>
+      </MD>
+      <MD>
+         <Name><![CDATA[Date]]></Name>
+         <Value><![CDATA[Sun Jun  9 15:41:21 2024]]></Value>
+      </MD>
+      <MD>
+         <Name><![CDATA[gifticlib-version]]></Name>
+         <Value><![CDATA[gifti library version 1.09, 28 June, 2010]]></Value>
+      </MD>
+   </MetaData>
+   <LabelTable>
+      <Label Key="0" Red="0" Green="0" Blue="1" Alpha="1"><![CDATA[Cluster 0]]></Label>
+      <Label Key="1" Red="1" Green="0" Blue="0" Alpha="1"><![CDATA[Cluster 7320]]></Label>
+      <Label Key="2" Red="0" Green="1" Blue="0" Alpha="1"><![CDATA[Cluster 7331]]></Label>
+      <Label Key="3" Red="0" Green="0" Blue="0.172549" Alpha="1"><![CDATA[Cluster 7340]]></Label>
+      <Label Key="4" Red="1" Green="0.101961" Blue="0.72549" Alpha="1"><![CDATA[Cluster 7341]]></Label>
+      <Label Key="5" Red="1" Green="0.827451" Blue="0" Alpha="1"><![CDATA[Cluster 7343]]></Label>
+   </LabelTable>
+   <DataArray Intent="NIFTI_INTENT_LABEL"
+              DataType="NIFTI_TYPE_INT32"
+              ArrayIndexingOrder="RowMajorOrder"
+              Dimensionality="1"
+              Dim0="32492"
+              Encoding="GZipBase64Binary"
+              Endian="LittleEndian"
+              ExternalFileName=""
+              ExternalFileOffset="">
+      <MetaData>
+         <MD>
+            <Name><![CDATA[Name]]></Name>
+            <Value><![CDATA[node label]]></Value>
+         </MD>
+      </MetaData>
+      <Data>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</Data>
+   </DataArray>
+</GIFTI>
