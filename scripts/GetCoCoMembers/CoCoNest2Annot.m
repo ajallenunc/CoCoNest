@@ -54,7 +54,7 @@ function result = CoCoNest2Annot(name,kseq,cocoPath)
             end
 
             % Write Annot
-            write_annotation(strcat(cocoPath,'/scripts/output/labels/',hemi,'.',name,'_',...
+            write_annotation(strcat(cocoPath,'/scripts/output/labels/',hemi,'_',name,'_',...
                 string(k),'_fslr32k.annot'), vertices, remap_idx, ct);    
         end
 
