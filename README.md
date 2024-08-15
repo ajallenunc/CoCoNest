@@ -1,5 +1,15 @@
 # CoCoNest
 
+[Click here](https://ajallenunc.github.io/coconest-site/) to be navigated to the CoCoNest webpage. The webpage includes an introduction to CoCoNest, instructions on how to get started using CoCoNest for connectome analyses, and a showcase of analyses using CoCoNest. 
+
+For more information, see our [paper on Network Neuroscience](https://direct.mit.edu/netn/article/doi/10.1162/netn_a_00409/123887/CoCoNest-A-Continuous-Structural-Connectivity)
+
+Citation: Adrian Allen, Zhengwu Zhang, Andrew Nobel; CoCoNest: A Continuous Structural Connectivity-based Nested Parcellation of the Human Cerebral Cortex. Network Neuroscience 2024; doi: https://doi.org/10.1162/netn_a_00409
+
+
+
+
+
 ## Brief Methodology 
 A nested, multi-resolution family of parcellations of the human cerebral cortex. The CoCoNest family was constructed from the structural connectivity of 897 subjects from the Human Connectome Project. The average structural connectivity from these subjects was fed into a standard agglomerative clustering algorithm to create a full binary tree, and then a error-complexity pruning algorithm to create a decreasing sequence of subtrees. The terminal nodes of each subtree correspond to a unique member of the CoCoNest family. The scripts used to create the CoCoNest family are available in the scripts/CreatePruneTree folder.  
 <p align="center">
